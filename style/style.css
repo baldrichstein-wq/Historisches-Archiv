@@ -1,0 +1,110 @@
+body {
+    font-family: 'Fraktur', 'Times New Roman';
+    margin: 0;
+    padding: 20px;
+    background-color: #f4efe2;
+    color: #2b2b2b;
+}
+header {
+    background-color: #362f2b;
+    color: #f4efe2;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 4px double #d3c4a8;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+header p {
+    margin: 0.5rem 0 0 0;
+    font-style: italic;
+    color: #d3c4a8;
+}
+nav {
+    background-color: #4a403a;
+    text-align: center;
+    padding: 0.5rem;
+}
+nav a {
+    color: #f4efe2;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+nav a:hover {
+    text-decoration: underline;
+    color: #e6b800;
+}
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+main {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #d3c4a8;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+}
+.intro {
+    font-size: 1.2rem;
+    font-style: italic;
+    border-bottom: 1px solid #362f2b;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.timeline-item{
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #362f2b;
+}
+.timeline-item h3 {
+    font-size: 1.4rem;
+    color: #8c2d19;
+    margin: 0 0 5px 0;
+}
+.timeline-item .date {
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9rem;
+}
+aside {
+    background: #ebe4d3;
+    padding: 20px;
+    border: 1px solid #d3c4a8;
+    height: fit-content;
+}
+aside h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #362f2b;
+    padding-bottom: 5px;
+}
+aside ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+aside ul li {
+    margin-bottom: 10px;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #362f2b;
+    color: #f4efe2;
+    margin-top: 40px;
+    border-top: 4px double #d3c4a8;
+    font-size: 0.9rem;
+}
+/* Responsive Design für Mobilegeräte*/
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
