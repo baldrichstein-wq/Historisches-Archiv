@@ -102,6 +102,7 @@ footer {
     border-top: 4px double #d3c4a8;
     font-size: 0.9rem;
 }
+li
 /* Responsive Design für Mobilegeräte*/
 @media (max-width: 768px) {
     .container {
