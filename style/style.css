@@ -102,7 +102,18 @@ footer {
     border-top: 4px double #d3c4a8;
     font-size: 0.9rem;
 }
-li
+a {
+    color: #8c2d19; /* Beispiel: Das gleiche Dunkelrot wie deine Chronik-Überschriften */
+    text-decoration: none; /* Entfernt die Standard-Unterstreichung */
+}
+
+a:hover {
+    color: #362f2b; /* Farbe beim Darüberfahren */
+    text-decoration: underline; /* Fügt eine Unterstreichung beim Darüberfahren hinzu */
+}
+footer a {
+    color: #d3c4a8; 
+}
 /* Responsive Design für Mobilegeräte*/
 @media (max-width: 768px) {
     .container {
