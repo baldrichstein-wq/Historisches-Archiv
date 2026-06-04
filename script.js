@@ -69,15 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Der Zusatz #toolbar=0 am Ende der URL versteckt die Download- und Drucken-Buttons in vielen Browsern.
                         // Der Download-Link wurde absichtlich entfernt, um das Speichern zu erschweren.
                         vorschauHTML = `
-                        <iframe src="${eintrag.datei}#toolbar=0" width="100%" height="500px" style="border: 1px solid #ddd; margin-bottom: 10px;" oncontextmenu="return false;"></iframe>
+                        <iframe src="${eintrag.datei}#toolbar=0" width="100%" height="900px" style="border: 1px solid #ddd; margin-bottom: 10px;" oncontextmenu="return false;"></iframe>
                         `;
                     } else {
-                        vorschauHTML = `
-                            <a href="${eintrag.datei}" target="_blank">
-                                <img src="${eintrag.datei}" alt="${eintrag.titel}" style="max-width: 100%; height: auto; border: 1px solid #ddd; display: block; margin-bottom: 10px;">
-                            </a>
-                        `;
+           //             vorschauHTML = `
+             //               <a href="${eintrag.datei}" target="_blank">
+               //                 <img src="${eintrag.datei}" alt="${eintrag.titel}" style="max-width: 100%; height: auto; border: 1px solid #ddd; display: block; margin-bottom: 10px;">
+                 //           </a>
+                   //     `
+                   vorschauHTML = `
+                   <div style='background-image: url("${eintrag.datei}"); background-size: contain; background-repeat: no-repeat; background-position: center; width: ${eintrag.width}px; height: ${eintrag.height}px; border: 1px solid #ddd; margin-bottom: 10px;' oncontextmenu="return false;"></div>
+                    `;
                     }
+                    
 
                     // Den Inhalt zusammenbauen
                     itemDiv.innerHTML = `

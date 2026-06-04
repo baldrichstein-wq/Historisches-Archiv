@@ -3,6 +3,9 @@
 {
       "titel": "Karikatur",
       "typ": "bild",
+      "height": 600,
+      "width": 400,
+      "jahr": "1914",
       "datei": "postkarten/karikatur.jpg",
       "beschreibung": "Eine karikatur aus dem Ersten Weltkrieg."
     }
