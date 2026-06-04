@@ -18,11 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('timeline-item');
                 
-                // Den HTML-Inhalt des Eintrags füllen
+                // Den HTML-Inhalt des Eintrags mit <details> und <summary> füllen
                 itemDiv.innerHTML = `
-                    <h3>${eintrag.jahr}</h3>
-                    <div class="date">${eintrag.datum}</div>
-                    <p>${eintrag.text}</p>
+                    <details style="cursor: pointer; margin-bottom: 10px;">
+                        <summary style="font-weight: bold; font-size: 1.1em;">
+                            ${eintrag.jahr} <span class="date" style="font-weight: normal; font-size: 0.9em;">(${eintrag.datum})</span>
+                        </summary>
+                        <p style="margin-top: 10px;">${eintrag.text}</p>
+                    </details>
                 `;
                 
                 // Das fertige Element in den Container auf der Webseite einfügen
