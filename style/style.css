@@ -121,6 +121,6 @@ footer a {
 /* Responsive Design für Mobilegeräte*/
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr;
+        grid-template-columns:reapeat (3,1fr);
     }
 }
