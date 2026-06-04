@@ -1,8 +1,12 @@
 body {
-    font-family: 'Fraktur', 'Times New Roman';
+    font-family: 'Fraktura', 'Times New Roman';
     margin: 0;
     padding: 20px;
-    background-color: #f4efe2;
+    background-color: #f4efe2; /* Bleibt als Fallback-Farbe bestehen */
+    background-image: url('../hintergrund/Hintergrundbild1.png');
+    background-size: cover; /* Sorgt dafür, dass das Bild den gesamten Hintergrund ausfüllt */
+    background-position: center; /* Zentriert das Bild */
+    background-attachment: fixed; /* Das Bild bleibt beim Scrollen stehen */
     color: #2b2b2b;
 }
 header {
