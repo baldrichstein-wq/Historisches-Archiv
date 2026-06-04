@@ -24,7 +24,26 @@
     </nav>
     <div class="container">
 
+<main>
+    <h2>Kontakt</h2>
+    <p>Haben Sie Fragen zu den historischen Dokumenten, Feldpostkarten oder Fotografien? Schreiben Sie uns gerne eine Nachricht.</p>
+    
+    <form action="php/kontakt.php" method="POST">
+        <label for="name">Ihr Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
 
+        <label for="email">Ihre E-Mail-Adresse:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="betreff">Betreff:</label><br>
+        <input type="text" id="betreff" name="betreff" required><br><br>
+
+        <label for="nachricht">Ihre Nachricht:</label><br>
+        <textarea id="nachricht" name="nachricht" rows="6" required></textarea><br><br>
+
+        <button type="submit">Nachricht absenden</button>
+    </form>
+</main>
             <aside>
                 <h3>Archiv-Ressourcen</h3>
 
