@@ -43,6 +43,34 @@ nav a:hover {
     text-decoration: underline;
     color: #e6b800;
 }
+/* Styling für das Pulldown-Menü in der Navigation */
+nav select {
+    background: transparent;    /* Verhindert den typischen grauen Kasten */
+    color: #f4efe2;             /* Übernimmt die Textfarbe der Navigationsleiste */
+    font-family: Fraktur;       /* Übernimmt die Schriftart */
+    font-size: inherit;         /* Übernimmt die Schriftgröße */
+    font-weight: inherit;       /* Übernimmt die Schriftdicke (z.B. fett) */
+    border: none;               /* Entfernt den Standard-Rahmen */
+    padding: 0 10px;            /* Innenabstand, passend zu den anderen Links */
+    cursor: pointer;            /* Zeigt den Zeigefinger beim Drüberfahren */
+    outline: none;              /* Entfernt den unschönen Rahmen beim Anklicken */
+    appearance: none;           /* Entfernt das Standard-Browser-Design */
+    -webkit-appearance: none;   /* Für ältere Safari- & Chrome-Versionen */
+    -moz-appearance: none;      /* Für ältere Firefox-Versionen */
+}
+
+/* Optional: Stil für die Navigationselemente beim Drüberfahren (Hover) */
+nav select:hover {
+    /* Wenn deine Links beim Drüberfahren z.B. die Farbe ändern, 
+       kannst du das hier für das Menü angleichen, z.B.: */
+    color: #e6b800;
+}
+
+/* Styling für die einzelnen Optionen im Menü */
+nav select option {
+    background-color: #4a403a;     /* Hintergrundfarbe des Menüs im geöffneten Zustand (hier anpassen!) */
+    color: #fff;                /* Textfarbe der Optionen im geöffneten Zustand */
+}
 .container {
     max-width: 1100px;
     margin: 20px auto;

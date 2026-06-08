@@ -14,10 +14,13 @@
     </header>
     <nav>
         <a href="index.html">Chronik</a>
-        <a href="postcard.html">Postkarten</a>
-        <a href="zeitschriften.html">Zeitschriften</a>
-        <a href="fotografien.html">Fotografien</a>
-        <a href="dokumente.html">Dokumente</a>
+        <select name="archiv" onchange="location = this.value;">
+            <option value="" disabled selected>Archiv</option>
+            <option value="postcard.html">Postkarten</option>
+            <option value="zeitschriften.html">Zeitschriften</option>
+            <option value="fotografien.html">Fotografien</option>
+            <option value="dokumente.html">Dokumente</option>
+        </select>
         <a href="suche.html">Suche</a>
         <a href="kontakt.html">Kontakt</a>
         <a href="impressum.html">Impressum</a>
