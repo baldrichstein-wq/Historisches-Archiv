@@ -79,6 +79,9 @@ nav select option {
     grid-template-columns: 3fr 1fr;
     gap: 20px;
 }
+.container1 {
+    text-align: center;
+}
 main {
     background-color: #ffffff;
     padding: 30px;
