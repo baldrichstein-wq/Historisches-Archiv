@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // NEU: Prüfung, ob der Container existiert (verhindert Fehler auf anderen Unterseiten)
     if (chronikContainer) {
         // Die JSON-Datei abrufen
-        fetch('texte/texte.json')
+        fetch('texte/chronik.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Fehler beim Laden der Textdaten.");
