@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "Historisches-Archiv",
+			"path": ".."
+		},
+		{
+			"name": "dokumente",
+			"path": "../../dokumente"
+		},
+		{
+			"name": "fotografien",
+			"path": "../../fotografien"
+		},
+		{
+			"name": "postkarten",
+			"path": "../../postkarten"
+		},
+		{
+			"name": "script",
+			"path": "../../script"
+		},
+		{
+			"name": "style",
+			"path": "../../style"
+		},
+		{
+			"name": "texte",
+			"path": "../../texte"
+		},
+		{
+			"name": "zeitschriften",
+			"path": "../../zeitschriften"
+		}
+	],
+	"settings": {}
+}
