@@ -37,7 +37,7 @@ function Songs() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/songs')
+    fetch('http://localhost:8091/api/songs')
       .then(res => res.json())
       .then(data => setSongs(data))
       .catch(err => console.error(err));

@@ -17,7 +17,7 @@ function EditItem() {
     }
 
     // Verify role
-    fetch('http://localhost:8000/api/users/me', {
+    fetch('http://localhost:8091/api/users/me', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -37,11 +37,11 @@ function EditItem() {
 
     if (id) {
       let url = '';
-      if (type === 'song') url = `http://localhost:8000/api/songs/${id}`;
-      else if (type === 'recipe') url = `http://localhost:8000/api/recipes/${id}`;
-      else if (type === 'timeline') url = `http://localhost:8000/api/timeline/${id}`;
-      else if (type === 'archive') url = `http://localhost:8000/api/archive/${id}`;
-      else if (type === 'link') url = `http://localhost:8000/api/links/${id}`;
+      if (type === 'song') url = `http://localhost:8091/api/songs/${id}`;
+      else if (type === 'recipe') url = `http://localhost:8091/api/recipes/${id}`;
+      else if (type === 'timeline') url = `http://localhost:8091/api/timeline/${id}`;
+      else if (type === 'archive') url = `http://localhost:8091/api/archive/${id}`;
+      else if (type === 'link') url = `http://localhost:8091/api/links/${id}`;
 
       if (url) {
         fetch(url)
@@ -64,11 +64,11 @@ function EditItem() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let url = '';
-    if (type === 'song') url = 'http://localhost:8000/api/songs';
-    else if (type === 'recipe') url = 'http://localhost:8000/api/recipes';
-    else if (type === 'timeline') url = 'http://localhost:8000/api/timeline';
-    else if (type === 'archive') url = 'http://localhost:8000/api/archive';
-    else if (type === 'link') url = 'http://localhost:8000/api/links';
+    if (type === 'song') url = 'http://localhost:8091/api/songs';
+    else if (type === 'recipe') url = 'http://localhost:8091/api/recipes';
+    else if (type === 'timeline') url = 'http://localhost:8091/api/timeline';
+    else if (type === 'archive') url = 'http://localhost:8091/api/archive';
+    else if (type === 'link') url = 'http://localhost:8091/api/links';
 
     if (id) url += `/${id}`;
 

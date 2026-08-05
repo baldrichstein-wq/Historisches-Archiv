@@ -7,7 +7,7 @@ function Timeline() {
   const [expandedEvents, setExpandedEvents] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/timeline')
+    fetch('http://localhost:8091/api/timeline')
       .then(response => response.json())
       .then(data => {
         setEvents(data);

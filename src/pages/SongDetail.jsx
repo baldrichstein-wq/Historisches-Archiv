@@ -9,7 +9,7 @@ function SongDetail() {
   useEffect(() => {
     // Da unsere API noch keinen direkten Endpunkt für eine einzelne ID hat,
     // fetchen wir alle und suchen das Passende (alternativ könnte man den Backend-Endpunkt erweitern).
-    fetch('http://localhost:8000/api/songs')
+    fetch('http://localhost:8091/api/songs')
       .then(res => res.json())
       .then(data => {
         const found = data.find(s => s.id.toString() === id);

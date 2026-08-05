@@ -19,7 +19,7 @@ function VerifyEmail() {
     if (hasFetched.current) return;
     hasFetched.current = true;
 
-    fetch('http://localhost:8000/api/verify', {
+    fetch('http://localhost:8091/api/verify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token })

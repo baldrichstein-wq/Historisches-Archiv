@@ -15,7 +15,7 @@ function Guestbook() {
   const canDelete = token && ['admin', 'moderator'].includes(userRole);
 
   const fetchEntries = () => {
-    fetch('http://localhost:8000/api/guestbook')
+    fetch('http://localhost:8091/api/guestbook')
       .then(res => res.json())
       .then(data => {
         setEntries(Array.isArray(data) ? data : []);
@@ -51,7 +51,7 @@ function Guestbook() {
       const headers = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
-      const res = await fetch('http://localhost:8000/api/guestbook', {
+      const res = await fetch('http://localhost:8091/api/guestbook', {
         method: 'POST',
         headers,
         body: JSON.stringify({ name, email, message })
@@ -85,7 +85,7 @@ function Guestbook() {
     if (!window.confirm("Diesen Gästebucheintrag wirklich löschen?")) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/guestbook/${id}`, {
+      const res = await fetch(`http://localhost:8091/api/guestbook/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

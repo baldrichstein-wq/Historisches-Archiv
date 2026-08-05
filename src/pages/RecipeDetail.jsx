@@ -7,7 +7,7 @@ function RecipeDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/recipes')
+    fetch('http://localhost:8091/api/recipes')
       .then(res => res.json())
       .then(data => {
         const found = data.find(r => r.id.toString() === id);

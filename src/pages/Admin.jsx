@@ -36,15 +36,15 @@ function Admin() {
 
   const fetchData = useCallback(async () => {
     try {
-      const pcRes = await fetch('http://localhost:8000/api/archive');
+      const pcRes = await fetch('http://localhost:8091/api/archive');
       if(pcRes.ok) setPostcards(await pcRes.json());
-      const evRes = await fetch('http://localhost:8000/api/timeline');
+      const evRes = await fetch('http://localhost:8091/api/timeline');
       if(evRes.ok) setEvents(await evRes.json());
-      const songRes = await fetch('http://localhost:8000/api/songs');
+      const songRes = await fetch('http://localhost:8091/api/songs');
       if(songRes.ok) setSongs(await songRes.json());
-      const recRes = await fetch('http://localhost:8000/api/recipes');
+      const recRes = await fetch('http://localhost:8091/api/recipes');
       if(recRes.ok) setRecipes(await recRes.json());
-      const linkRes = await fetch('http://localhost:8000/api/links');
+      const linkRes = await fetch('http://localhost:8091/api/links');
       if(linkRes.ok) setLinks(await linkRes.json());
     } catch (err) {
       console.error("Fehler beim Laden der Daten:", err);
@@ -53,7 +53,7 @@ function Admin() {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/users', {
+      const res = await fetch('http://localhost:8091/api/users', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -61,13 +61,13 @@ function Admin() {
       }
       const role = localStorage.getItem('userRole');
       if (role === 'admin') {
-        const blockRes = await fetch('http://localhost:8000/api/blocked-emails', {
+        const blockRes = await fetch('http://localhost:8091/api/blocked-emails', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (blockRes.ok) {
           setBlockedEmails(await blockRes.json());
         }
-        const ipRes = await fetch('http://localhost:8000/api/blocked-ips', {
+        const ipRes = await fetch('http://localhost:8091/api/blocked-ips', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (ipRes.ok) {
@@ -82,7 +82,7 @@ function Admin() {
   const fetchPending = useCallback(async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:8000/api/admin/pending', {
+      const res = await fetch('http://localhost:8091/api/admin/pending', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -96,7 +96,7 @@ function Admin() {
 
   const fetchCurrentUser = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/users/me', {
+      const res = await fetch('http://localhost:8091/api/users/me', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -117,7 +117,7 @@ function Admin() {
 
   const updateUserRole = async (userId, newRole) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/users/${userId}/role`, {
+      const res = await fetch(`http://localhost:8091/api/users/${userId}/role`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ function Admin() {
   const deleteUser = async (userId) => {
     if (!window.confirm('Möchtest du diesen User wirklich löschen? Seine Einträge bleiben erhalten.')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/users/${userId}`, {
+      const res = await fetch(`http://localhost:8091/api/users/${userId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -161,7 +161,7 @@ function Admin() {
     e.preventDefault();
     const emailToBlock = e.target.elements.emailToBlock.value;
     try {
-      const res = await fetch('http://localhost:8000/api/blocked-emails', {
+      const res = await fetch('http://localhost:8091/api/blocked-emails', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ function Admin() {
       });
       if (res.ok) {
         e.target.reset();
-        const blockRes = await fetch('http://localhost:8000/api/blocked-emails', {
+        const blockRes = await fetch('http://localhost:8091/api/blocked-emails', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (blockRes.ok) setBlockedEmails(await blockRes.json());
@@ -187,7 +187,7 @@ function Admin() {
   const unblockEmail = async (id) => {
     if(!window.confirm('Blockierung aufheben?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/blocked-emails/${id}`, {
+      const res = await fetch(`http://localhost:8091/api/blocked-emails/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -203,7 +203,7 @@ function Admin() {
     e.preventDefault();
     const ipToBlock = e.target.elements.ipToBlock.value;
     try {
-      const res = await fetch('http://localhost:8000/api/blocked-ips', {
+      const res = await fetch('http://localhost:8091/api/blocked-ips', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ function Admin() {
       });
       if (res.ok) {
         e.target.reset();
-        const blockRes = await fetch('http://localhost:8000/api/blocked-ips', {
+        const blockRes = await fetch('http://localhost:8091/api/blocked-ips', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (blockRes.ok) setBlockedIps(await blockRes.json());
@@ -229,7 +229,7 @@ function Admin() {
   const blockUserIp = async (ipAddress) => {
     if (!ipAddress || ipAddress === 'Unbekannt') return alert("Keine gültige IP-Adresse vorhanden.");
     try {
-      const res = await fetch('http://localhost:8000/api/blocked-ips', {
+      const res = await fetch('http://localhost:8091/api/blocked-ips', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -239,7 +239,7 @@ function Admin() {
       });
       if (res.ok) {
         alert(`IP ${ipAddress} wurde blockiert.`);
-        const blockRes = await fetch('http://localhost:8000/api/blocked-ips', {
+        const blockRes = await fetch('http://localhost:8091/api/blocked-ips', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (blockRes.ok) setBlockedIps(await blockRes.json());
@@ -255,7 +255,7 @@ function Admin() {
   const unblockIp = async (id) => {
     if(!window.confirm('IP-Blockierung aufheben?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/blocked-ips/${id}`, {
+      const res = await fetch(`http://localhost:8091/api/blocked-ips/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -270,7 +270,7 @@ function Admin() {
   const handleApprove = async (category, id) => {
     if (!token) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/approve/${category}/${id}`, {
+      const res = await fetch(`http://localhost:8091/api/admin/approve/${category}/${id}`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -293,7 +293,7 @@ function Admin() {
     if (!token) return;
     if (!window.confirm('Möchtest du diesen Eintrag wirklich ablehnen und löschen?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/reject/${category}/${id}`, {
+      const res = await fetch(`http://localhost:8091/api/admin/reject/${category}/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -325,7 +325,7 @@ function Admin() {
     formData.append('password', password);
 
     try {
-      const response = await fetch('http://localhost:8000/api/login', {
+      const response = await fetch('http://localhost:8091/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData
@@ -363,7 +363,7 @@ function Admin() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/api/register', {
+      const response = await fetch('http://localhost:8091/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -401,7 +401,7 @@ function Admin() {
   const deletePostcard = async (id) => {
     if (!window.confirm("Bist du sicher, dass du diesen Archiv-Eintrag löschen möchtest?")) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/archive/${id}`, {
+      const response = await fetch(`http://localhost:8091/api/archive/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -420,7 +420,7 @@ function Admin() {
   const deleteEvent = async (id) => {
     if (!window.confirm("Bist du sicher, dass du dieses Ereignis löschen möchtest?")) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/timeline/${id}`, {
+      const response = await fetch(`http://localhost:8091/api/timeline/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -437,7 +437,7 @@ function Admin() {
   const deleteSong = async (id) => {
     if(!window.confirm('Wirklich löschen?')) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/songs/${id}`, {
+      const response = await fetch(`http://localhost:8091/api/songs/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -454,7 +454,7 @@ function Admin() {
   const deleteRecipe = async (id) => {
     if(!window.confirm('Wirklich löschen?')) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/recipes/${id}`, {
+      const response = await fetch(`http://localhost:8091/api/recipes/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -471,7 +471,7 @@ function Admin() {
   const deleteLink = async (id) => {
     if(!window.confirm('Wirklich löschen?')) return;
     try {
-      const response = await fetch(`http://localhost:8000/api/links/${id}`, {
+      const response = await fetch(`http://localhost:8091/api/links/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -751,7 +751,7 @@ function Admin() {
                       {filteredPending.archive.map(item => (
                         <li key={item.id} className="admin-list-item" style={{background: 'rgba(0,0,0,0.3)', padding: '0.8rem', borderRadius: '8px', marginBottom: '0.5rem'}}>
                           <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                            {item.image_url && <img src={item.image_url.startsWith('http') || item.image_url.startsWith('/') ? item.image_url : `http://localhost:8000/${item.image_url}`} alt={item.title} style={{width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px'}} />}
+                            {item.image_url && <img src={item.image_url.startsWith('http') || item.image_url.startsWith('/') ? item.image_url : `http://localhost:8091/${item.image_url}`} alt={item.title} style={{width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px'}} />}
                             <div>
                               <strong style={{color: 'var(--color-accent-gold)'}}>{item.title}</strong> {item.year && <small style={{color: '#aaa'}}>({item.year})</small>}
                               {item.description && <p style={{margin: '0.2rem 0 0', color: '#ccc', fontSize: '0.9rem'}}>{item.description}</p>}

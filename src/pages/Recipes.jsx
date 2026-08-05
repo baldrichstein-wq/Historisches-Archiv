@@ -27,7 +27,7 @@ function Recipes() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/recipes')
+    fetch('http://localhost:8091/api/recipes')
       .then(res => res.json())
       .then(data => setRecipes(data))
       .catch(err => console.error(err));

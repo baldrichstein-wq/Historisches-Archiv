@@ -6,7 +6,7 @@ function Links() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/links')
+    fetch('http://localhost:8091/api/links')
       .then(res => res.json())
       .then(data => {
         setLinks(data);

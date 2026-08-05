@@ -49,7 +49,7 @@ function Gallery() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/archive')
+    fetch('http://localhost:8091/api/archive')
       .then(response => response.json())
       .then(data => {
         setItems(data);
