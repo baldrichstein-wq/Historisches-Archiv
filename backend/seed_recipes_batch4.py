@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Recipe, Category, User
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@postgres:5432/historisches_archiv")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./data/historisches_archiv.db")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 db = SessionLocal()

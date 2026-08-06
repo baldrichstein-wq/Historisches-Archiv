@@ -1,7 +1,7 @@
 import os
 import sqlalchemy
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@postgres:5432/historisches_archiv")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./data/historisches_archiv.db")
 engine = sqlalchemy.create_engine(DATABASE_URL)
 
 try:

@@ -163,7 +163,7 @@ def upload_image(file: UploadFile = File(...), current_user: models.User = Depen
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
         
-    return {"url": f"http://localhost:8091/uploads/{unique_filename}"}
+    return {"url": f"/archiv/uploads/{unique_filename}"}
 
 @app.get("/api/users/me", response_model=schemas.UserResponse)
 def get_users_me(request: Request, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
@@ -607,7 +607,7 @@ def seed_database(db: Session = Depends(get_db)):
         author="Max Schneckenburger",
         origin="Deutsches Kaiserreich",
         language="Deutsch",
-        sheet_music_url="http://localhost:8091/uploads/wacht_am_rhein_noten.jpg",
+        sheet_music_url="/archiv/uploads/wacht_am_rhein_noten.jpg",
         lyrics="""Es braust ein Ruf wie Donnerhall,
 Wie Schwertgeklirr und Wogenprall:
 Zum Rhein, zum Rhein, zum deutschen Rhein,
@@ -789,7 +789,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p1 = models.ArchiveItem(
         title="Das Herz am Rhein", 
         description='Transkription: "Das Herz am Rhein. Es liegt eine Leier im grünen Rhein, Gezaubert von Gold und von Edelstein, Und wer sie erhebt vom tiefen Grund, Dem strömen die Lieder begeistert vom Mund."', 
-        image_url="http://localhost:8091/uploads/pc_14.jpg", 
+        image_url="/archiv/uploads/pc_14.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -797,7 +797,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p2 = models.ArchiveItem(
         title="Feldpostkarte aus Lorentzweiler (12.08.1914)", 
         description='Transkription: "Lorentzweiler, den 12.8.14. Liebe Liesel! Wie heute Nachmittag nochmal zum Abendessen das Telegramm. Dienst in Treuen; bin noch gesund u. munter was ich auch von Dir hoffe, und von Papa. Heute wurde ausgerufen, daß noch keine Post von Hause ausgegeben ist. Hoffentlich erhalte ich bald ein Lebenszeichen von Dir. So nimm nun für heute die herzlichsten Grüße von Deinem Walther. (Absender: Bf. Uffz. W. Krause 6/118, 50 Brigade 25 Division, 18 Armeekorps)"', 
-        image_url="http://localhost:8091/uploads/pc1.jpg", 
+        image_url="/archiv/uploads/pc1.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -805,7 +805,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p3 = models.ArchiveItem(
         title="Feldpostkarte aus Fresnoy-le-Roye (25.11.1914)", 
         description='Transkription: "Fresnoy-le-Roye, den 25.11.14. Mein Lisel! Die besten Grüße heute am Geburtstag unseres Landesherrn, sendet dir und den Deinigen, Dein Walther. Auf baldiges Wiedersehen."', 
-        image_url="http://localhost:8091/uploads/pc2.jpg", 
+        image_url="/archiv/uploads/pc2.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -813,7 +813,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p4 = models.ArchiveItem(
         title="Postkarte aus Bettenburg (08.08.1914)", 
         description='Transkription: "Bettenburg, d. 8.8.14. Mein Lisel! Ich habe hier nun das schönste Wetter, gerade wie im Juli. Vielmals grüßt Dich & Vater, Dein Walther. Lass bitte auch bald mal ein Lebenszeichen von Dir sehen. Nochmals viel tausend Grüße, Walther."', 
-        image_url="http://localhost:8091/uploads/pc3.jpg", 
+        image_url="/archiv/uploads/pc3.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -821,7 +821,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p5 = models.ArchiveItem(
         title="Feldpostkarte aus Fresnoy-le-Roye (24.11.1914)", 
         description='Transkription: "Fresnoy-le-Roye, den 24.11.1914. Mein Lisel! Soeben Dein liebes Paket erhalten und danke dir vielmals dafür. Hatte Dir gestern nochmal geschrieben, weil ich mir einbildete, dass Pakete schon ins Feld geschickt worden sind. Bin noch froh, gesund und munter, was ich auch von Dir hoffe. So sei nun mit Papa vieltausendmal herzlich gegrüßt von Deinem Walther."', 
-        image_url="http://localhost:8091/uploads/pc6.jpg", 
+        image_url="/archiv/uploads/pc6.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -829,7 +829,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p6 = models.ArchiveItem(
         title="Postkarte aus Bettenburg (06.08.1914)", 
         description='Transkription: "Bettenburg, den 6.8.14. Mein Lisel! Bin noch froh und munter, was ich auch von Dir hoffe. Haben bis jetzt noch nichts mitgemacht. Tausend Grüße an Vater u. Dich, Dein Walther. (Absender: Bf. Uffz. W. Krause 6/118, 50 Brig. 25 Division, 8 Armeekorps)"', 
-        image_url="http://localhost:8091/uploads/pc5.jpg", 
+        image_url="/archiv/uploads/pc5.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -837,7 +837,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p7 = models.ArchiveItem(
         title="Fräulein Leutnant!", 
         description='Transkription: "Fräulein Leutnant! Donnerwetter tadellos!"', 
-        image_url="http://localhost:8091/uploads/pc0.jpg", 
+        image_url="/archiv/uploads/pc0.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -845,7 +845,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
     p8 = models.ArchiveItem(
         title="Postkarte vom 10.08.1914", 
         description='Transkription: "Liebe Lisel! Augenblicklich ist für mich hier im Geschäft wenig zu machen. Werde wohl bald nach Hause kommen. Vielmals grüßt Dich Dein Walther. Herzliche Grüße an Papa. Grüße sendet Chef."', 
-        image_url="http://localhost:8091/uploads/pc8.jpg", 
+        image_url="/archiv/uploads/pc8.jpg",
         year=1914, 
         item_type="Postkarte",
         category_id=cat_postcards.id
@@ -858,7 +858,7 @@ Ich bin ein Preuße, will ein Preuße sein.""",
         vordrucke.append(models.ArchiveItem(
             title=f"Vordruck für eiserne Rationen ({i - 2})",
             description="Vordruck für eiserne Rationen",
-            image_url=f"http://localhost:8091/uploads/IMG-20251228-WA{idx}.jpg",
+            image_url=f"/archiv/uploads/IMG-20251228-WA{idx}.jpg",
             year=1914,
             item_type="Vordruck",
             category_id=cat_postcards.id
